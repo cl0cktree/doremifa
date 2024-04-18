@@ -1,0 +1,222 @@
+[
+    {
+        "id": "#Cust0",
+        "date": "2024-03-28",
+        "name": "Lawrence",
+        "country": "UK",
+        "flag": "uk.png",
+        "product": "Galaxy S5",
+        "color": "Yellow",
+        "quantity": 9,
+        "price": "15100"
+    },
+    {
+        "id": "#Cust1",
+        "date": "2024-03-27",
+        "name": "Anna",
+        "country": "China",
+        "flag": "china.png",
+        "product": "IPhone 5S",
+        "color": "Violet",
+        "quantity": 13,
+        "price": "381500"
+    },
+    {
+        "id": "#Cust2",
+        "date": "2024-03-26",
+        "name": "Anna",
+        "country": "USA",
+        "flag": "usa.png",
+        "product": "Galaxy Note3",
+        "color": "Green",
+        "quantity": 14,
+        "price": "540700"
+    },
+    {
+        "id": "#Cust3",
+        "date": "2024-03-25",
+        "name": "Jennifer",
+        "country": "China",
+        "flag": "china.png",
+        "product": "Galaxy S5",
+        "color": "Orange",
+        "quantity": 4,
+        "price": "68200"
+    },
+    {
+        "id": "#Cust4",
+        "date": "2024-03-24",
+        "name": "Kim",
+        "country": "Korea",
+        "flag": "korea.png",
+        "product": "LG G3",
+        "color": "Yellow",
+        "quantity": 4,
+        "price": "235800"
+    },
+    {
+        "id": "#Cust5",
+        "date": "2024-03-23",
+        "name": "Lawrence",
+        "country": "Korea",
+        "flag": "korea.png",
+        "product": "Galaxy Note3",
+        "color": "Gray",
+        "quantity": 8,
+        "price": "29800"
+    },
+    {
+        "id": "#Cust6",
+        "date": "2024-03-22",
+        "name": "Jennifer",
+        "country": "UK",
+        "flag": "uk.png",
+        "product": "Galaxy S5",
+        "color": "Green",
+        "quantity": 14,
+        "price": "996000"
+    },
+    {
+        "id": "#Cust7",
+        "date": "2024-03-21",
+        "name": "Jennifer",
+        "country": "Singapore",
+        "flag": "singapore.png",
+        "product": "Galaxy S5",
+        "color": "Pink",
+        "quantity": 6,
+        "price": "971600"
+    },
+    {
+        "id": "#Cust8",
+        "date": "2024-03-20",
+        "name": "Emma",
+        "country": "USA",
+        "flag": "usa.png",
+        "product": "LG G3",
+        "color": "Green",
+        "quantity": 6,
+        "price": "44100"
+    },
+    {
+        "id": "#Cust9",
+        "date": "2024-03-19",
+        "name": "Anna",
+        "country": "China",
+        "flag": "china.png",
+        "product": "Galaxy Note3",
+        "color": "Orange",
+        "quantity": 5,
+        "price": "828800"
+    },
+    {
+        "id": "#Cust10",
+        "date": "2024-03-18",
+        "name": "Anna",
+        "country": "France",
+        "flag": "france.png",
+        "product": "Galaxy S5",
+        "color": "Green",
+        "quantity": 11,
+        "price": "709700"
+    },
+    {
+        "id": "#Cust11",
+        "date": "2024-03-17",
+        "name": "Emma",
+        "country": "UK",
+        "flag": "uk.png",
+        "product": "Galaxy Note3",
+        "color": "Pink",
+        "quantity": 5,
+        "price": "317300"
+    },
+    {
+        "id": "#Cust12",
+        "date": "2024-03-16",
+        "name": "Steve",
+        "country": "Italy",
+        "flag": "italy.png",
+        "product": "Galaxy S5",
+        "color": "Yellow",
+        "quantity": 13,
+        "price": "460500"
+    },
+    {
+        "id": "#Cust13",
+        "date": "2024-03-15",
+        "name": "Emma",
+        "country": "Ireland",
+        "flag": "ireland.png",
+        "product": "Galaxy S5",
+        "color": "Violet",
+        "quantity": 4,
+        "price": "555400"
+    },
+    {
+        "id": "#Cust14",
+        "date": "2024-03-14",
+        "name": "Kim",
+        "country": "Singapore",
+        "flag": "singapore.png",
+        "product": "LG G3",
+        "color": "Orange",
+        "quantity": 2,
+        "price": "70600"
+    },
+    {
+        "id": "#Cust15",
+        "date": "2024-03-13",
+        "name": "Emma",
+        "country": "UK",
+        "flag": "uk.png",
+        "product": "Galaxy S5",
+        "color": "Pink",
+        "quantity": 1,
+        "price": "899000"
+    },
+    {
+        "id": "#Cust16",
+        "date": "2024-03-12",
+        "name": "Anna",
+        "country": "Japan",
+        "flag": "japan.png",
+        "product": "Galaxy Note3",
+        "color": "Yellow",
+        "quantity": 20,
+        "price": "969300"
+    },
+    {
+        "id": "#Cust17",
+        "date": "2024-03-11",
+        "name": "Emma",
+        "country": "UK",
+        "flag": "uk.png",
+        "product": "IPhone 5S",
+        "color": "Orange",
+        "quantity": 14,
+        "price": "654700"
+    },
+    {
+        "id": "#Cust18",
+        "date": "2024-03-10",
+        "name": "Kim",
+        "country": "Ireland",
+        "flag": "ireland.png",
+        "product": "IPad Air",
+        "color": "Gray",
+        "quantity": 9,
+        "price": "551800"
+    },
+    {
+        "id": "#Cust19",
+        "date": "2024-03-09",
+        "name": "Anna",
+        "country": "Italy",
+        "flag": "italy.png",
+        "product": "IPhone 5S",
+        "color": "Pink",
+        "quantity": 16,
+        "price": "226800"
+    }
+]

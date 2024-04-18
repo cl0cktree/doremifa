@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" >
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/earlyaccess/notosanskr.css'>
+		<link href="./js/component/AUIGrid/AUIGrid_modern_style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+		<script src="/js/component/AUIGrid/AUIGridLicense.js"></script>
+		<script src="/js/component/AUIGrid/AUIGrid.js"></script>
+		<script src="/js/common/commUtil.js"></script>
+		<script src="/js/common/auiGridUtil.js"></script>
+		<script type="text/javascript" src="/js/commonUtil.js"></script>
+
+	</head>
+
+	<body class="log_main">
+		<header class="header">
+			<div class="header_left lay_left">
+				<h1>
+					<a href="./main.html" title="라스트미션 페이지 이동" class="logo_link" aria-hidden="false" tabindex="1">
+						<img src="./images/lastmission_Logo@x2.png" alt="라스트미션 로고">
+					</a>
+				</h1>
+			</div>
+			<div class="headery_right lay_right">
+				<a href="./log.html" role="" class="log_manage_button" aria-hidden="false" tabindex="2">
+					로그 관리
+				</a>
+				<a href="./login.html" role="" class="logout_button" aria-hidden="false" tabindex="3">
+					로그아웃
+				</a>
+				<div class="user_photo_wrap">
+					<img src="./images/ico_user_back.png" alt="등록 된 사진 없음 기본 이미지">
+				</div>
+			</div>
+		</header>
+		<div class="wrap">
+			<div class="container">
+				<section class="section_content section_content_1">
+					<h1 class="blind">관리 및 목록 화면</h1>
+					<article class="board_wrap">
+						<div class="status_wrap">
+							<div class="board_status">
+								<h2>
+									<a href="#" role="button" class="log_reload_btn" title="데이터 관리 버튼 클릭시 정보 최신화" aria-hidden="false" tabindex="4">
+										로그 관리
+									</a>
+								</h2>
+							</div>
+							<div class="search_wrap">
+								<div class="board_search">
+									<button class="select_lange" title="조회 종류 선택">
+										상태
+									</button>
+									<ul aria-hidden="false" aria-expanded="true" class="search_list display_none">
+										<li data-option="코드번호">
+											<button>
+												코드번호
+											</button>
+										</li>
+										<li data-option="사업명">
+											<button>
+												사업명
+											</button>
+										</li>
+										<li data-option="상태">
+											<button>
+												상태
+											</button>
+										</li>
+										<li data-option="등록일">
+											<button>
+												등록일
+											</button>
+										</li>
+										<li data-option="최종 수정자">
+											<button>
+												최종 수정자
+											</button>
+										</li>
+									</ul>
+									<select name="" id="" class="hidden_select">
+										<option value="코드번호">코드번호</option>
+										<option value="사업명">사업명</option>
+										<option value="상태">상태</option>
+										<option value="등록일">등록일</option>
+										<option value="최종 수정자">최종 수정자</option>
+									</select>
+									<input type="text" class="select_input" placeholder="검색어를 입력하세요">
+									<button class="select_btn" title="검색버튼">
+									</button>
+								</div>
+							</div>
+						</div>
+						<div id="wordGrid"></div>
+						<!-- 그리드 페이징 -->
+						<div id="wordPaing" class="display_none"></div>
+						<div class="board_pagenation_wrap">
+							<div class="board_pagenation">
+								<button class="page_next_btn off"></button>
+								<ul class="page_num_url">
+									<li>
+										<a href="#" class="num_btn num_btn_1 on" data-num="1">1</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_2" data-num="2">2</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_3" data-num="3">3</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_4" data-num="4">4</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_5" data-num="5">5</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_6" data-num="6">6</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_7" data-num="7">7</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_8" data-num="8">8</a>
+									</li>
+									<li>
+										<a href="#" class="num_btn num_btn_9" data-num="9">9</a>
+									</li>
+								</ul>
+								<button class="page_back_btn"></button>
+							</div>
+						</div>
+					</article>
+				</section>
+			</div>
+		</div>
+		
+		<footer class="display_none">
+			<div class="body-footer-contaner">
+
+			</div>
+		</footer>
+		<script src="./js/component/AUIGrid/AUIGridLicense.js"></script>
+		<script src="./js/component/AUIGrid/AUIGrid.js"></script>
+		<script langeuage="javascript">
+		// AUIGrid 를 생성합니다.
+		function createAUIGrid() {
+			// AUIGrid 칼럼 설정
+			var columnLayout = [{
+				dataField: "id",
+				headerText: "ID",
+				width: 100
+			}, {
+				dataField: "name",
+				headerText: "Name",
+				width: 140
+			}, {
+				dataField: "country",
+				headerText: "Country",
+				width: 120
+			}, {
+				dataField: "flag",
+				headerText: "Flag",
+				width: 100,
+			}, {
+				dataField: "product",
+				headerText: "Product",
+				width: 140
+			}, {
+				dataField: "quantity",
+				headerText: "Quantity",
+				dataType: "numeric",
+				width: 100
+			}, {
+				dataField: "price",
+				headerText: "Price",
+				dataType: "numeric",
+				width: 120
+			}, {
+				dataField: "date",
+				headerText: "Date",
+				width: 120
+			}
+			];
+			
+			// 그리드 속성 설정
+			var gridPros = {
+				showRowNumColumn: false,
+			};
+			
+			// 실제로 #grid_wrap 에 그리드 생성
+			myGridID = AUIGrid.create("#wordGrid", columnLayout,{
+				hoverMode:"singleRow",
+				selectionMode:"multipleRows",
+			},gridPros);
+			
+			// 그리드 페이징 네비게이터 생성
+			createPagingNavigator(1);
+		}
+		
+		
+		var totalRowCount = 56; // 전체 데이터 건수
+		var rowCount = 20;	// 1페이지에서 보여줄 행 수
+		var pageButtonCount = 10;		// 페이지 네비게이션에서 보여줄 페이지의 수
+		var currentPage = 1;	// 현재 페이지
+		var totalPage = Math.ceil(totalRowCount / rowCount);	// 전체 페이지 계산
+
+
+		// 페이징 네비게이터를 동적 생성합니다.
+		function createPagingNavigator(goPage) {
+			var retStr = "";
+			var prevPage = parseInt((goPage - 1) / pageButtonCount) * pageButtonCount;
+			var nextPage = ((parseInt((goPage - 1) / pageButtonCount)) * pageButtonCount) + pageButtonCount + 1;
+
+			prevPage = Math.max(0, prevPage);
+			nextPage = Math.min(nextPage, totalPage);
+
+			// 처음
+			retStr += "<a href='javascript:moveToPage(1)'><span class='aui-grid-paging-number aui-grid-paging-first'>first</span></a>";
+
+			// 이전
+			retStr += "<a href='javascript:moveToPage(" + Math.max(1, prevPage) + ")'><span class='aui-grid-paging-number aui-grid-paging-prev'>prev</span></a>";
+
+			for (var i = (prevPage + 1), len = (pageButtonCount + prevPage); i <= len; i++) {
+				if (goPage == i) {
+					retStr += "<span class='aui-grid-paging-number aui-grid-paging-number-selected'>" + i + "</span>";
+				} else {
+					retStr += "<a href='javascript:moveToPage(" + i + ")'><span class='aui-grid-paging-number'>";
+					retStr += i;
+					retStr += "</span></a>";
+				}
+
+				if (i >= totalPage) {
+					break;
+				}
+
+			}
+
+			// 다음
+			retStr += "<a href='javascript:moveToPage(" + nextPage + ")'><span class='aui-grid-paging-number aui-grid-paging-next'>next</span></a>";
+
+			// 마지막
+			retStr += "<a href='javascript:moveToPage(" + totalPage + ")'><span class='aui-grid-paging-number aui-grid-paging-last'>last</span></a>";
+
+			document.getElementById("wordPaing").innerHTML = retStr;
+		}
+
+		function moveToPage(goPage) {
+
+			// 페이징 네비게이터 업데이트
+			createPagingNavigator(goPage);
+
+			// 현재 페이지 보관
+			currentPage = goPage;
+
+			// rowCount 만큼 데이터 요청
+			preRequestData(rowCount, goPage);
+		}
+
+		// 데이터 요청
+		function preRequestData(count, goPage) {
+			let fileName = "gridData_" + goPage + ".json";
+			
+			AUIGrid.showAjaxLoader("#wordGrid");
+			fetch('./' + fileName)
+				.then(response => {
+					return response.json();
+				})
+				.then(jsonData => {
+					AUIGrid.setGridData("#wordGrid", jsonData);
+					AUIGrid.removeAjaxLoader("#wordGrid");
+					
+				});
+		}
+		
+		$(function() {
+			// AUIGrid 그리드를 생성합니다.
+			createAUIGrid();
+
+			// 데이터 요청, 요청 성공 시 AUIGrid 에 데이터 삽입합니다.
+			preRequestData(rowCount, currentPage);
+		});
+		</script>
+		<script defer src="./js/move.js"></script>
+	</body>
+</html>
