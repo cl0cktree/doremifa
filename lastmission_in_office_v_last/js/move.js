@@ -172,6 +172,7 @@ $(function(){
 			console.log('this = '+ $rowId);
 
 			if(e.type=="mousedown"){
+				$('.board_table_body').find('tr').removeClass('backgroud_BFDCFF');
 				$.getJSON(json_data, function(data){
 					$.each(data, function(I, item){
 						if($rowId==item.id){
@@ -406,6 +407,7 @@ $(function(){
 			}
 			
 			if(e.type=="mouseup"){
+				$(this).addClass('backgroud_BFDCFF');
 				auto_this.style.height = 28+'px';
 				if(auto_this.scrollHeight>28){
 					auto_this.style.height = auto_this.scrollHeight + "px";
