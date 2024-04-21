@@ -1,6 +1,53 @@
 $(function(){
 	/*loader 제어*/
 	$(document).ready(function(){
+		function table_maker(){
+			var get_table_json = './gridData_1.json';
+			var item_condition;
+			var index_val=0;
+			var tr_index = 0;
+			$.getJSON(get_table_json, function(data){
+				$('.board_table_wrap').append('<table class="board_table"><caption class="blind">데이터 관리 목록 테이블</caption>\
+					<colgroup><col style="width:12%"><col style="width:52%"><col style="width:12%"><col style="width:12%"><col style="width:12%"></colgroup>\
+					<thead><tr><th scope="col">코드번호</th><th scope="col">사업명</th>	<th scope="col">상태</th><th scope="col">등록일</th><th scope="col">최종 수정자</th></tr></thead>\
+					<tbody class="board_table_body"></tbody>\
+					</table>'
+				);
+				$.each(data, function(I, item){
+					item_condition = item.condition;
+					// var item_length = item_id.length;
+					tr_index++;
+
+					$('.board_table_body').append('<tr data-index="'+tr_index+'"><td>'+item.id+'</td><td><a href="#none">'+item.business+'</a></td><td><span class="">'+item.condition+'</span></td><td>'+item.date+'</td><td>'+item.name+'</td></tr>');
+					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(2)').children('span').each(function(){
+						// $('.board_table_body').children('tr').find('td:eq(2)').children('span').removeAttr('class');
+						if($(this).text()=='신규'){
+							$(this).addClass('color_000000');
+							$(this).addClass('new_this');
+						}
+						if($(this).text()=='임시저장'){
+							$(this).addClass('color_709CBC');
+						}
+						if($(this).text()=='작성중'){
+							$(this).addClass('color_000AFF');
+						}
+						if($(this).text()=='완료'){
+							$(this).addClass('color_B8B8B8');
+						}
+						index_val++;
+						console.log($('.board_table_body').find('tr').data('index'));
+					});
+					if($('.board_table_body').find('tr').data('index').length<15){
+						$(this).addClass('display_none');
+					}else{
+						$(this).addClass('display_none');
+					};
+					
+				});
+			});
+			
+		};
+		table_maker();
 		//-----검색 부분 셀랙트 박스 구현 부분
 		var $select_lange = $('.select_lange');
 		var $search_list = $('.search_list');
@@ -163,7 +210,7 @@ $(function(){
 		// -----------------------------
 
 		// ------ json 에서 데이터 가져와 input 에 삽입----
-		$('.board_table_body').find('tr').on('mousedown mouseup', function(e){
+		$('.data_main').find('.board_table_wrap').on('mousedown mouseup','tr', function(e){
 			var json_data = './gridData_1.json';
 			var $rowId = $(this).find('td').eq(0).text();
 			var data_arr = [];
@@ -172,7 +219,10 @@ $(function(){
 			console.log('this = '+ $rowId);
 
 			if(e.type=="mousedown"){
-				$('.board_table_body').find('tr').removeClass('backgroud_BFDCFF');
+				$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('backgroud_BFDCFF');
+				$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('font_weight_700');
+				$('.board_table_wrap').find('.board_table_body').find('tr').children('td').removeClass('font_weight_700');
+				$('.board_table_wrap').find('.board_table_body').find('tr').find('a').removeClass('font_weight_700');
 				$.getJSON(json_data, function(data){
 					$.each(data, function(I, item){
 						if($rowId==item.id){
@@ -408,6 +458,10 @@ $(function(){
 			
 			if(e.type=="mouseup"){
 				$(this).addClass('backgroud_BFDCFF');
+				$(this).addClass('font_weight_700');
+				$(this).children('td').addClass('font_weight_700');
+				$(this).find('a').addClass('font_weight_700');
+
 				auto_this.style.height = 28+'px';
 				if(auto_this.scrollHeight>28){
 					auto_this.style.height = auto_this.scrollHeight + "px";
