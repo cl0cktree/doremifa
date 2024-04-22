@@ -1,9 +1,12 @@
 $(function(){
 	/*loader 제어*/
 	$(document).ready(function(){
+		var page_per_row = 15;
 		function table_maker(){
 			var get_table_json = './gridData_1.json';
 			var item_condition;
+			var per_rows;
+			var per_count;
 			var index_val=0;
 			var tr_index = 0;
 			$.getJSON(get_table_json, function(data){
@@ -13,11 +16,11 @@ $(function(){
 					<tbody class="board_table_body"></tbody>\
 					</table>'
 				);
+				$('.board_pagenation').append('<button type="button" class="page_next_btn" tabindex="0"></button><ul class="page_num_url"></ul><button type="button" class="page_back_btn" tabindex="0"></button>');
 				$.each(data, function(I, item){
 					item_condition = item.condition;
 					// var item_length = item_id.length;
 					tr_index++;
-
 					$('.board_table_body').append('<tr data-index="'+tr_index+'"><td>'+item.id+'</td><td><a href="#none">'+item.business+'</a></td><td><span class="">'+item.condition+'</span></td><td>'+item.date+'</td><td>'+item.name+'</td></tr>');
 					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(2)').children('span').each(function(){
 						// $('.board_table_body').children('tr').find('td:eq(2)').children('span').removeAttr('class');
@@ -35,19 +38,48 @@ $(function(){
 							$(this).addClass('color_B8B8B8');
 						}
 						index_val++;
-						console.log($('.board_table_body').find('tr').data('index'));
 					});
-					if($('.board_table_body').find('tr').data('index').length<15){
-						$(this).addClass('display_none');
-					}else{
-						$(this).addClass('display_none');
-					};
-					
+					per_rows = $('.data_main').find('.board_table_body').find('tr');
+					per_count = per_rows.length;
 				});
+				pagenation_maker();
 			});
-			
+			function pagenation_maker(){
+				var page_count = Math.ceil(per_count/page_per_row);
+				for(var i=1; i<=page_count; i++){
+					$('.data_main').find('.page_num_url').append('<li><a href="#" class="num_btn num_btn_'+i+'" data-num="'+i+'" tabindex="0">'+i+'</a></li>');
+				};
+			};
 		};
 		table_maker();
+
+		$('.data_main').find('.board_pagenation').on('click','a',function(e){
+			e.preventDefault();
+
+			var num_btn = $('.data_main').find('.board_pagenation').find('a');
+			var num_start = $(this).data('num')*page_per_row;
+			var num_end = num_start+page_per_row;
+
+			num_btn.removeClass('on');
+			$(this).addClass('on');
+			console.log(num_end);
+			$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').addClass('display_none');
+			for(var i=num_start; i<num_end; i++){
+				if(i<num_end){
+					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr:eq('+i+')').removeClass('display_none');
+				}
+				
+			};
+		});
+
+
+		// var await_functions = async function(){
+		// 	var await_table_maker = await table_maker();
+		// 	var await_pagenation_maker = await pagenation_maker();
+		// 	await_table_maker;
+		// 	await_pagenation_maker;
+		// }
+		// await_functions();
 		//-----검색 부분 셀랙트 박스 구현 부분
 		var $select_lange = $('.select_lange');
 		var $search_list = $('.search_list');
@@ -860,6 +892,7 @@ $(function(){
 		$('.login_page').find('.btn_wrap').children('button').on('click',function(e){
 			location = './main.html';
 		});
+
 		// -----------------------------------------------
 	});
 	return false;
