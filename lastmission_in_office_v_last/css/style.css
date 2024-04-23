@@ -157,7 +157,7 @@ body>div.wrap:after{content:''; position:relative; display:block; width:100%; he
 .data_main .section_content_1 .status_wrap .search_wrap .board_search>.search_list>li>button:hover{background:#fff; border:1px solid #000; font-weight:500;}
 .data_main .section_content_1 .status_wrap .search_wrap .board_search>.hidden_select{display:none;}
 
-.data_main .section_content_1 .board_table_wrap{position:relative; height:580px; overflow-y:auto;}
+.data_main .section_content_1 .board_table_wrap{position:relative; max-height:580px; overflow-y:auto;}
 .data_main .section_content_1 .board_table_wrap>.board_table{width:100%; font-size:14px; border-collapse:collapse;}
 .data_main .section_content_1 .board_table_wrap>.board_table>thead>tr>th{height:37px; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; margin:0; padding:0; line-height:37px; color:#5A5A5A; font-weight:500;}
 .data_main .section_content_1 .board_table_wrap>.board_table>.board_table_body>tr{text-align:center; color:#5a5a5a;}

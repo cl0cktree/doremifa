@@ -49,6 +49,7 @@ $(function(){
 				for(var i=1; i<=page_count; i++){
 					$('.data_main').find('.page_num_url').append('<li><a href="#" class="num_btn num_btn_'+i+'" data-num="'+i+'" tabindex="0">'+i+'</a></li>');
 				};
+				$('.num_btn_1').click();
 			};
 		};
 		table_maker();
