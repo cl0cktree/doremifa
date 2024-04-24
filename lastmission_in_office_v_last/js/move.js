@@ -1,6 +1,7 @@
 $(function(){
 	/*loader 제어*/
 	$(document).ready(function(){
+		// --------- 테이블 자동 생성 및 페이지네이션 생성 및 동작 관련-----------------------
 		var page_per_row = 15;
 		var per_rows;
 		var per_count;
@@ -67,14 +68,55 @@ $(function(){
 			$(this).addClass('on');
 			console.log(num_end);
 			$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').addClass('display_none');
+			$('.data_main').find('.board_pagenation').find('button').removeClass('off');
 
 			for(var i=0; i<page_per_row; i++){
 				var view_num = i+((view_page-1)*page_per_row);
 				console.log('view_num = '+view_num);
 				$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr:eq('+view_num+')').removeClass('display_none');
 			};
+			if($(this).is('.num_btn_1')){
+				$('.data_main').find('.board_pagenation').find('.page_next_btn').addClass('off');
+			}
+			if($(this).is('.num_btn_'+page_count)){
+				$('.data_main').find('.board_pagenation').find('.page_back_btn').addClass('off');
+			}
 		});
 
+		$('.data_main').find('.board_pagenation').on('click','button',function(e){
+			var page_length = $('.data_main').find('.page_num_url').find('a').length;
+			var this_page = $('.data_main').find('.page_num_url').find('.on').data('num');
+			var this_num;
+
+			$('.data_main').find('.board_pagenation').find('button').removeClass('off');
+			$('.data_main').find('.page_num_url').find('a').removeClass('on');
+
+			if($(this).is('.page_back_btn')){
+				if(this_page>=page_length){
+					this_num=page_length;
+					$(this).addClass('off');
+				}else{
+					this_num = this_page+1;
+					if(this_page>=(page_length-1)){
+						$(this).addClass('off');
+					}
+				}
+				$('.data_main').find('.page_num_url').find('.num_btn_'+this_num).click();
+			}else if($(this).is('.page_next_btn')){
+				console.log('this_page = '+this_page);
+				if(this_page<=1){
+					this_num=1;
+					$(this).addClass('off');
+				}else{
+					this_num = this_page-1;
+					if(this_page==2){
+						$(this).addClass('off');
+					}
+				}
+				$('.data_main').find('.page_num_url').find('.num_btn_'+this_num).click();
+			}
+		});
+		// ----------------------------------------------------------
 		//-----검색 부분 셀랙트 박스 구현 부분
 		var $select_lange = $('.select_lange');
 		var $search_list = $('.search_list');
