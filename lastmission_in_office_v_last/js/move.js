@@ -5,6 +5,10 @@ $(function(){
 		var page_per_row = 15;
 		var per_rows;
 		var per_count;
+		var option_1;
+		var option_2;
+		var option_3;
+		var option_4;
 		function table_maker(){
 			var get_table_json = './gridData_1.json';
 			var item_condition;
@@ -28,15 +32,23 @@ $(function(){
 						if($(this).text()=='신규'){
 							$(this).addClass('color_000000');
 							$(this).addClass('new_this');
+							option_1 =$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('.new_this').length;
+							$('.data_main').find('.board_status').find('ul').find('dl').find('.color_000000').text(option_1);
 						}
 						if($(this).text()=='임시저장'){
 							$(this).addClass('color_709CBC');
+							option_2 = $('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('.color_709CBC').length;
+							$('.data_main').find('.board_status').find('ul').find('dl').find('.color_709CBC').text(option_2);
 						}
 						if($(this).text()=='작성중'){
 							$(this).addClass('color_000AFF');
+							option_3 =  $('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('.color_000AFF').length;
+							$('.data_main').find('.board_status').find('ul').find('dl').find('.color_000AFF').text(option_3);
 						}
 						if($(this).text()=='완료'){
 							$(this).addClass('color_B8B8B8');
+							option_4 = $('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('.color_B8B8B8').length;
+							$('.data_main').find('.board_status').find('ul').find('dl').find('.color_9c9c9c').text(option_4);
 						}
 						index_val++;
 					});
@@ -54,7 +66,10 @@ $(function(){
 			};
 		};
 		table_maker();
-
+		console.log('option_1 = '+option_1);
+		console.log('option_2 = '+option_2);
+		console.log('option_3 = '+option_3);
+		console.log('option_4 = '+option_4);
 		$('.data_main').find('.board_pagenation').on('click','a',function(e){
 			e.preventDefault();
 
