@@ -300,10 +300,14 @@ $(function(){
 			console.log('this = '+ $rowId);
 
 			if(e.type=="mousedown"){
-				$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('backgroud_BFDCFF');
-				$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('font_weight_700');
-				$('.board_table_wrap').find('.board_table_body').find('tr').children('td').removeClass('font_weight_700');
-				$('.board_table_wrap').find('.board_table_body').find('tr').find('a').removeClass('font_weight_700');
+				if($(this).parent().is('.board_table_body')){
+					$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('backgroud_BFDCFF');
+					$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('font_weight_700');
+					$('.board_table_wrap').find('.board_table_body').find('tr').children('td').removeClass('font_weight_700');
+					$('.board_table_wrap').find('.board_table_body').find('tr').find('a').removeClass('font_weight_700');
+				}
+				$('.board_table_wrap').find('thead').find('tr').removeClass('backgroud_BFDCFF');
+				
 				$.getJSON(json_data, function(data){
 					$.each(data, function(I, item){
 						if($rowId==item.id){
@@ -548,6 +552,7 @@ $(function(){
 					auto_this.style.height = auto_this.scrollHeight + "px";
 				}
 				console.log('auto_this = '+auto_this.scrollHeight);
+				$('.board_table_wrap').find('thead').find('tr').removeClass('backgroud_BFDCFF');
 			}
 		});
 		// -----------------------------------------------

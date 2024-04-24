@@ -21,7 +21,7 @@ input[type=radio]+label{display:inline-block;cursor:pointer;position:relative;pa
 input[type=radio]+label:before{content:"";display:inline-block;width:9px;height:9px;margin-right:10px;margin-bottom:10px;position:absolute;left:0;bottom:1px;background:#ebebeb;border-radius:10px;border:1px solid #b1b4b5;}
 input[type=radio]:checked+label:before{content:"\25CF";font-size:9px;font-weight:100;color:#fff;background:#343a3f;text-align:center;line-height:8px;}
 
-input[type=text],input[type="password"]{box-sizing:border-box;}
+input[type=text],input[type="password"],input[type="tel"]{box-sizing:border-box;}
 input[type=button]{box-sizing:border-box;font-family:'Noto Sans KR',sans-serif,'Nanum Gothic','NanumGothic';}
 input[type=select]{appearance:none;}
 textarea{box-sizing:border-box;}
@@ -222,7 +222,7 @@ body>div.wrap:after{content:''; position:relative; display:block; width:100%; he
 .data_main .section_content_2 .tab_content_wrap dl::after{content:""; display:block; height:0; clear:both;}
 .data_main .section_content_2 .tab_content_wrap dl>dt{width:160px; height:28px; float:left; line-height:28px; color:#1E1E1E; font-size:14px; font-weight:500;}
 .data_main .section_content_2 .tab_content_wrap dl>dd{position:relative; width:calc(100% - 160px); margin-inline-start:0; float:right;}
-.data_main .section_content_2 .tab_content_wrap dl>dd input[type="text"]{height:28px;border:1px solid #E6E6E6; border-radius:5px; padding:0px 8px 0; font-size:12px;}
+.data_main .section_content_2 .tab_content_wrap dl>dd input[type="text"],.data_main .section_content_2 .tab_content_wrap dl>dd input[type="tel"]{height:28px;border:1px solid #E6E6E6; border-radius:5px; padding:0px 8px 0; font-size:12px;}
 .data_main .section_content_2 .tab_content_wrap dl>dd textarea{min-height:28px;border:1px solid #E6E6E6; border-radius:5px; padding:0px 8px 0; line-height:24px; font-size:12px; resize:none;}
 .data_main .section_content_2 .tab_content_wrap dl>dd .datepicker_btn{position:absolute; width:20px; height:20px; border:none; background:url("../images/btn_date.png") no-repeat center/contain; left:6px; top:3px;}
 .data_main .section_content_2 .tab_content_wrap dl>dd .date_short_input{width:197px; float:left;}
