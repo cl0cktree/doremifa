@@ -66,10 +66,7 @@ $(function(){
 			};
 		};
 		table_maker();
-		console.log('option_1 = '+option_1);
-		console.log('option_2 = '+option_2);
-		console.log('option_3 = '+option_3);
-		console.log('option_4 = '+option_4);
+		
 		$('.data_main').find('.board_pagenation').on('click','a',function(e){
 			e.preventDefault();
 
