@@ -24,9 +24,34 @@ $(function(){
 				$('.board_pagenation').append('<button type="button" class="page_next_btn" tabindex="0"></button><ul class="page_num_url"></ul><button type="button" class="page_back_btn" tabindex="0"></button>');
 				$.each(data, function(I, item){
 					item_condition = item.condition;
-					// var item_length = item_id.length;
 					tr_index++;
-					$('.board_table_body').append('<tr data-index="'+tr_index+'"><td>'+item.id+'</td><td><a href="#none">'+item.business+'</a></td><td><span class="">'+item.condition+'</span></td><td>'+item.date+'</td><td>'+item.name+'</td></tr>');
+
+					$('.board_table_body').append('<tr class="data_tr_title data_tr_title_'+tr_index+'" data-index="'+tr_index+'"><td>'+item.id+'</td><td><a href="#none" tabindex="0">'+item.business+'</a></td><td><span class="">'+item.condition+'</span></td><td>'+item.date+'</td><td>'+item.name+'</td></tr>');
+					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(1)').find('a').each(function(){
+						
+						var this_title = $(this).text();
+						
+						// if(($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().indexOf(this_title)==false)||($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().match(this_title))||($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().match(item.business))){
+						// 	console.log('this_title = '+$(this).parent('td').parent('tr').children('td:eq(0)').text());
+						// 	console.log($('.data_main').find('.board_table_wrap').find('td:eq(1)').text());
+						// 	$(this).addClass('caution_yellow');
+						// 	// var same_arr_before = [...before];
+						// 	var same_arr_after = [...$(this).text()];
+						// 	console.log('this_title = '+$(this).parent('td').parent('tr'));
+						// 	// console.log('제목 = '+$(this).text()+' / 갯수 = '+$(this).parent('tr').attr('class')+' arr = '+same_arr_before+' / '+same_arr_after);
+						// };
+
+						if($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().match(item.business)){
+							console.log('this_title = '+$(this).parent('td').parent('tr').children('td:eq(0)').text());
+							console.log(this_title);
+							$(this).addClass('caution_yellow');
+							// var same_arr_before = [...before];
+							var same_arr_after = [...$(this).text()];
+							console.log('this_title = '+$(this).parent('td').parent('tr'));
+							// console.log('제목 = '+$(this).text()+' / 갯수 = '+$(this).parent('tr').attr('class')+' arr = '+same_arr_before+' / '+same_arr_after);
+						};
+
+					});
 					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(2)').children('span').each(function(){
 						// $('.board_table_body').children('tr').find('td:eq(2)').children('span').removeAttr('class');
 						if($(this).text()=='신규'){
@@ -66,7 +91,7 @@ $(function(){
 			};
 		};
 		table_maker();
-		
+		// console.log($('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').length);
 		$('.data_main').find('.board_pagenation').on('click','a',function(e){
 			e.preventDefault();
 
