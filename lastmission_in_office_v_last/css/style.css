@@ -212,7 +212,7 @@ body>div.wrap:after{content:''; position:relative; display:block; width:100%; he
 .data_main .section_content_2 .tab_content_wrap .form_title_wrap .form_title{width:calc(100% - 260px); height:32px; margin-top:-4px; border:none; line-height:32px; font-size:16px; font-weight:700; float:left;}
 .data_main .section_content_2 .tab_content_wrap .form_title_wrap .gov_link_btn{display:block; width:20px; height:20px; background:url("../images/line_ico_out.png") no-repeat center/contain; margin-top:4px; float:right;}
 
-.data_main .section_content_2 .tab_content_wrap .form_title_wrap .another_code_wrap{min-width:170px; margin-left:162px; margin-top:10px;}
+.data_main .section_content_2 .tab_content_wrap .form_title_wrap .another_code_wrap{min-width:170px; margin-left:162px; height:26px; margin-top:10px;}
 .data_main .section_content_2 .tab_content_wrap .form_title_wrap .another_code_wrap .code_select_open{width:100%; height:26px; background:#7C7979 url("../images/ico_down_white.png") no-repeat 94% center; border:1px solid #000; border-radius:5px; padding-left:17px; text-align:left; font-size:12px; font-weight:700; color:#fff;}
 .data_main .section_content_2 .tab_content_wrap .form_title_wrap .another_code_wrap .another_code_list{position:absolute; width:100%; z-index: 500;}
 .data_main .section_content_2 .tab_content_wrap .form_title_wrap .another_code_wrap .another_code_list>li>button{width:100%; height:26px; border:none; padding-left:17px; text-align:left; font-size:12px;}

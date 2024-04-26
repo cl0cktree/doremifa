@@ -14,6 +14,8 @@ $(function(){
 			var item_condition;
 			var index_val=0;
 			var tr_index = 0;
+			var in_index = 0;
+
 			$.getJSON(get_table_json, function(data){
 				$('.board_table_wrap').append('<table class="board_table"><caption class="blind">데이터 관리 목록 테이블</caption>\
 					<colgroup><col style="width:12%"><col style="width:52%"><col style="width:12%"><col style="width:12%"><col style="width:12%"></colgroup>\
@@ -27,31 +29,23 @@ $(function(){
 					tr_index++;
 
 					$('.board_table_body').append('<tr class="data_tr_title data_tr_title_'+tr_index+'" data-index="'+tr_index+'"><td>'+item.id+'</td><td><a href="#none" tabindex="0">'+item.business+'</a></td><td><span class="">'+item.condition+'</span></td><td>'+item.date+'</td><td>'+item.name+'</td></tr>');
-					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(1)').find('a').each(function(){
-						
-						var this_title = $(this).text();
-						
-						// if(($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().indexOf(this_title)==false)||($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().match(this_title))||($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().match(item.business))){
-						// 	console.log('this_title = '+$(this).parent('td').parent('tr').children('td:eq(0)').text());
-						// 	console.log($('.data_main').find('.board_table_wrap').find('td:eq(1)').text());
-						// 	$(this).addClass('caution_yellow');
-						// 	// var same_arr_before = [...before];
-						// 	var same_arr_after = [...$(this).text()];
-						// 	console.log('this_title = '+$(this).parent('td').parent('tr'));
-						// 	// console.log('제목 = '+$(this).text()+' / 갯수 = '+$(this).parent('tr').attr('class')+' arr = '+same_arr_before+' / '+same_arr_after);
-						// };
-
-						if($('.data_main').find('.board_table_wrap').find('td:eq(1)').find('a').text().match(item.business)){
-							console.log('this_title = '+$(this).parent('td').parent('tr').children('td:eq(0)').text());
-							console.log(this_title);
-							$(this).addClass('caution_yellow');
-							// var same_arr_before = [...before];
-							var same_arr_after = [...$(this).text()];
-							console.log('this_title = '+$(this).parent('td').parent('tr'));
-							// console.log('제목 = '+$(this).text()+' / 갯수 = '+$(this).parent('tr').attr('class')+' arr = '+same_arr_before+' / '+same_arr_after);
-						};
-
-					});
+					
+					var text_tr = $('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(1)');
+					for(var i=1; i<text_tr.length; i++){
+						for(var j=0; j<i; j++){
+							var i_text = $(text_tr[i]).find('a');
+							var j_text = $(text_tr[j]).find('a');
+							var i_text_a = i_text.text();
+							var j_text_a = j_text.text();
+							if(i_text_a==j_text_a){
+								i_text.addClass('caution_yellow');
+								j_text.addClass('caution_yellow');
+								var same_arr_length = $('.data_main').find('.board_table_wrap').find('.caution_yellow').length;
+								$('.data_main').find('.board_status').find('ul').find('dl').find('.color_FF0000').text(same_arr_length);
+							}
+						}
+					};
+					
 					$('.data_main').find('.board_table_wrap').find('.board_table_body').children('tr').find('td:eq(2)').children('span').each(function(){
 						// $('.board_table_body').children('tr').find('td:eq(2)').children('span').removeAttr('class');
 						if($(this).text()=='신규'){
@@ -332,7 +326,6 @@ $(function(){
 					$('.board_table_wrap').find('.board_table_body').find('tr').find('a').removeClass('font_weight_700');
 				}
 				$('.board_table_wrap').find('thead').find('tr').removeClass('backgroud_BFDCFF');
-				
 				$.getJSON(json_data, function(data){
 					$.each(data, function(I, item){
 						if($rowId==item.id){
@@ -578,6 +571,16 @@ $(function(){
 				}
 				console.log('auto_this = '+auto_this.scrollHeight);
 				$('.board_table_wrap').find('thead').find('tr').removeClass('backgroud_BFDCFF');
+
+				$('.caution_name').removeClass('on');
+				$('.code_select_open').addClass('display_none');
+				if($(this).find('.caution_yellow').length>0){
+					var btn_txt = $(this).find('td:eq(0)').text();
+					console.log($(this).attr('class'));
+					$('.caution_name').addClass('on');
+					$('.code_select_open').removeClass('display_none');
+					$('.code_select_open').text(btn_txt);
+				};
 			}
 		});
 		// -----------------------------------------------
