@@ -219,10 +219,11 @@ $(function(){
 			}
 		});
 
-		$code_options.on('click focusout',function(e){
+		$code_options.on('click mousedown focusout',function(e){
 			if(e.type=='click'){
-				$code_select_open.text($(this).parent('li').data('option'));
-				console.log('option = '+$(this).parent('li').data('option')+' / index = '+$(this).parent('li').data('index'));
+				var click_option = $(this).parent('li').data('option');
+				$code_select_open.text($(this).text());
+				console.log('option = '+click_option+' / index = '+$(this).parent('li').data('index'));
 				$(".anoter_code_selectbox").find('option').removeAttr("selected");
 				$(".anoter_code_selectbox").find('option').eq($(this).parent('li').data('index')-1).attr("selected", "selected");
 				$another_code_list.addClass('display_none');
@@ -240,7 +241,7 @@ $(function(){
 
 		// -------컨펌창 구현-------
 		var summon_file_this;  // 업로드 파일 명 공유 변수 - 하단 삭제 버튼과 연동하여 사용.
-		$('.close_btn').on('click',function(e){
+		$('.upload_wrap').on('click', '.close_btn', function(e){
 			$('.popup_filter').removeClass('display_none');
 			$('.modal_confirm_1').removeClass('display_none');
 			summon_file_this = $(this).parent();
@@ -560,6 +561,9 @@ $(function(){
 			}
 			
 			if(e.type=="mouseup"){
+				var list_in_same_1;
+				var list_in_same_2;
+
 				$(this).addClass('backgroud_BFDCFF');
 				$(this).addClass('font_weight_700');
 				$(this).children('td').addClass('font_weight_700');
@@ -576,10 +580,36 @@ $(function(){
 				$('.code_select_open').addClass('display_none');
 				if($(this).find('.caution_yellow').length>0){
 					var btn_txt = $(this).find('td:eq(0)').text();
-					console.log($(this).attr('class'));
+					var btn_title = $(this).find('.caution_yellow').text();
+
+					var i = 0;
+					$('.data_main').find('.board_table_wrap').find('.caution_yellow').each(function(){
+						var list_text = $(this).text();
+						var list_text_leng = $('.data_main').find('.board_table_wrap').find('.caution_yellow').length;
+						i++;
+						$('.data_main').find('.board_table_wrap').find('.caution_yellow:eq('+(i-1)+')').removeClass('caution_yellow_same');
+						if(list_text==btn_title){
+							var id_text = $(this).parent('td').parent('tr').find('td:eq(0)').text();
+							var id_text_leng =   $(this).length;
+							$('.data_main').find('.board_table_wrap').find('.caution_yellow:eq('+(i-1)+')').removeClass('caution_yellow_same');
+							$('.data_main').find('.board_table_wrap').find('.caution_yellow:eq('+(i-1)+')').addClass('caution_yellow_same');
+							list_in_same_1 =  $('.caution_yellow_same:eq(0)').parent('td').parent('tr').find('td:eq(0)').text();
+							list_in_same_2 =  $('.caution_yellow_same:eq(1)').parent('td').parent('tr').find('td:eq(0)').text();
+							console.log(list_in_same_2);
+						}
+					});
+
 					$('.caution_name').addClass('on');
 					$('.code_select_open').removeClass('display_none');
 					$('.code_select_open').text(btn_txt);
+					$('.another_code_list').find('.another_code:eq(0)').children('button').text(list_in_same_1);
+					$('.another_code_list').find('.another_code:eq(0)').attr('data-option',list_in_same_1);
+					$('.anoter_hidden_select:eq(0)').val(list_in_same_1);
+					$('.anoter_hidden_select:eq(0)').text(list_in_same_1);
+					$('.another_code_list').find('.another_code:eq(1)').children('button').text(list_in_same_2);
+					$('.another_code_list').find('.another_code:eq(1)').attr('data-option',list_in_same_2);
+					$('.anoter_hidden_select:eq(1)').val(list_in_same_2);
+					$('.anoter_hidden_select:eq(1)').text(list_in_same_2);
 				};
 			}
 		});
@@ -911,12 +941,30 @@ $(function(){
 		// ---------------------------------------------------
 
 		// ------- 업로드 파일 목록 부분 삭제 동작 예시 부분 ----
+		$('.add_file_btn').on('click', function(e){
+			$('#careers_view_file').click();
+		});
+
+		$('#careers_view_file').on('change', function(e){
+			var sum_num = $('.upload_file_wrap').find('.summon_file_wrap').length+1;
+			if(window.FileReader){
+				var filename = $(this)[0].files[0].name;
+			}
+			else {
+				var filename = $(this).val().split('/').pop().split('\\').pop();
+			};
+			$('.upload_file_wrap').append('<div class="summon_file_wrap" id="summon_file_wrap_'+sum_num+'">\
+			<a href="#" tabindex="0">'+filename+'</a>\
+			<button type="button" class="close_btn small remove_summon_btn" tabindex="0"></button></div>');
+		});
+
 		$('.delete_btn').on('click', function(e){
 			console.log('delete file name.');
 			$(summon_file_this).remove();
 			$('.popup_filter').addClass('display_none');
 			$('.modal_confirm_1').addClass('display_none');
 		});
+
 		// ---------------------------------------------------
 		// -----레이어 팝업 실행시 하위 레이어 tabindex 처리 및 상위 레이어 오토 포커스
 		// var focus_this;
