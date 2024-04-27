@@ -10,7 +10,7 @@ $(function(){
 		var option_3;
 		var option_4;
 		function table_maker(){
-			var get_table_json = './gridData_1.json';
+			var get_table_json = './data/gridData_1.json';
 			var item_condition;
 			var index_val=0;
 			var tr_index = 0;
@@ -312,7 +312,7 @@ $(function(){
 
 		// ------ json 에서 데이터 가져와 input 에 삽입----
 		$('.data_main').find('.board_table_wrap').on('mousedown mouseup','tr', function(e){
-			var json_data = './gridData_1.json';
+			var json_data = './data/gridData_1.json';
 			var $rowId = $(this).find('td').eq(0).text();
 			var data_arr = [];
 			var auto_this = document.getElementById('auto_textarea_1');

@@ -1,33 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="ko">
 	<head>
-		<title></title>
+		<title>라스트미션 사내 이용 홈페이지</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" >
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/earlyaccess/notosanskr.css'>
 		<link href="./js/component/AUIGrid/AUIGrid_modern_style.css" rel="stylesheet">
-		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
-		
-
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-
 		<script src="./js/jquery-3.2.1.min.js"></script>
-		<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-		<!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
-
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-
-		<!-- <script src="./js/component/AUIGrid/AUIGridLicense.js"></script>
-		<script src="./js/component/AUIGrid/AUIGrid.js"></script>
-		<script src="./js/common/commUtil.js"></script>
-		<script src="./js/common/auiGridUtil.js"></script>
-		<script type="text/javascript" src="./js/commonUtil.js"></script> -->
-
 	</head>
 
 	<body class="data_main">
@@ -441,7 +423,7 @@
 														<li data-index="11" data-value="바사아" class="solo_src_data_option solo_src_data_option_11"><button type="button" tabindex="0">바사아</button></li>
 														<li data-index="12" data-value="기타" id="etc_solo_sel_2" class="solo_src_data_option etc_solo_sel solo_src_data_option_12"><button type="button" tabindex="0">기타</button></li>
 													</ul>
-													<select id="list3_select" class="list_solo_select display_none">
+													<select id="list2_select" class="list_solo_select display_none">
 														<option value="가나다라">가나다라</option>
 														<option value="가나">가나</option>
 														<option value="가다">가다</option>
@@ -838,197 +820,7 @@
 
 			</div>
 		</footer>
-		<script src="./js/component/AUIGrid/AUIGridLicense.js"></script>
-		<script src="./js/component/AUIGrid/AUIGrid.js"></script>
-		<script langeuage="javascript">
-		// AUIGrid 를 생성합니다.
-		function createAUIGrid() {
-			// AUIGrid 칼럼 설정
-			var columnLayout = [{
-				dataField: "id",
-				headerText: "코드번호",
-				width:'13%',
-				minWidth: 100
-			}, {
-				dataField: "business",
-				headerText: "사업명",
-				width:'55%',
-				minWidth: 140
-			}, {
-				dataField: "condition",
-				headerText: "상태",
-				width:'10%',
-				minWidth: 120
-			}, {
-				dataField: "date",
-				headerText: "등록일",
-				width:'10%',
-				minWidth: 100,
-			}, {
-				dataField: "name",
-				headerText: "최종 수정자",
-				width:'12%',
-				minWidth: 140
-			}
-			];
-			
-			// 그리드 속성 설정
-			var gridPros = {
-				enableColumnResize: false, // 칼럼 리사아징 false 설정
-				showRowNumColumn: false,
-				showRowCheckColumn: false,
-			};
-			
-			var auiGridProps = {
-				enableColumnResize: false, // 칼럼 리사아징 false 설정
-				showRowNumColumn: false,
-				showRowCheckColumn: false,
-
-				// 그리드가 width 지정( 지정하지 않으면 부모 width 의 100% 할당받음 )	
-				// width: 1200,
-
-				// 그리드가 height 지정( 지정하지 않으면 부모 height 의 100% 할당받음 )
-				// height: 480
-			};
-
-			// 실제로 #grid_wrap 에 그리드 생성
-			myGridID = AUIGrid.create("#wordGrid", columnLayout,{
-				hoverMode:"singleRow",
-				selectionMode:"multipleRows",
-			},gridPros);
-			
-			// 그리드 페이징 네비게이터 생성
-			createPagingNavigator(1);
-		}
 		
-		function resizeGrid(w, h) {
-			if (myGridID){
-				AUIGrid.resize(myGridID, w, h);
-			};
-		}
-		
-		var totalRowCount = 56; // 전체 데이터 건수
-		var rowCount = 20;	// 1페이지에서 보여줄 행 수
-		var pageButtonCount = 10;		// 페이지 네비게이션에서 보여줄 페이지의 수
-		var currentPage = 1;	// 현재 페이지
-		var totalPage = Math.ceil(totalRowCount / rowCount);	// 전체 페이지 계산
-
-
-		// 페이징 네비게이터를 동적 생성합니다.
-		function createPagingNavigator(goPage) {
-			var retStr = "";
-			var prevPage = parseInt((goPage - 1) / pageButtonCount) * pageButtonCount;
-			var nextPage = ((parseInt((goPage - 1) / pageButtonCount)) * pageButtonCount) + pageButtonCount + 1;
-
-			prevPage = Math.max(0, prevPage);
-			nextPage = Math.min(nextPage, totalPage);
-
-			// 처음
-			retStr += "<a href='javascript:moveToPage(1)'><span class='aui-grid-paging-number aui-grid-paging-first'>first</span></a>";
-
-			// 이전
-			retStr += "<a href='javascript:moveToPage(" + Math.max(1, prevPage) + ")'><span class='aui-grid-paging-number aui-grid-paging-prev'>prev</span></a>";
-
-			for (var i = (prevPage + 1), len = (pageButtonCount + prevPage); i <= len; i++) {
-				if (goPage == i) {
-					retStr += "<span class='aui-grid-paging-number aui-grid-paging-number-selected'>" + i + "</span>";
-				} else {
-					retStr += "<a href='javascript:moveToPage(" + i + ")'><span class='aui-grid-paging-number'>";
-					retStr += i;
-					retStr += "</span></a>";
-				}
-
-				if (i >= totalPage) {
-					break;
-				}
-
-			}
-
-			// 다음
-			retStr += "<a href='javascript:moveToPage(" + nextPage + ")'><span class='aui-grid-paging-number aui-grid-paging-next'>next</span></a>";
-
-			// 마지막
-			retStr += "<a href='javascript:moveToPage(" + totalPage + ")'><span class='aui-grid-paging-number aui-grid-paging-last'>last</span></a>";
-
-			document.getElementById("wordPaing").innerHTML = retStr;
-		}
-
-		function moveToPage(goPage) {
-
-			// 페이징 네비게이터 업데이트
-			createPagingNavigator(goPage);
-
-			// 현재 페이지 보관
-			currentPage = goPage;
-
-			// rowCount 만큼 데이터 요청
-			preRequestData(rowCount, goPage);
-		}
-
-		// 데이터 요청
-		function preRequestData(count, goPage) {
-			let fileName = "gridData_" + goPage + ".json";
-			
-			AUIGrid.showAjaxLoader("#wordGrid");
-			fetch('./' + fileName)
-				.then(response => {
-					return response.json();
-				})
-				.then(jsonData => {
-					AUIGrid.setGridData("#wordGrid", jsonData);
-					AUIGrid.removeAjaxLoader("#wordGrid");
-					
-				});
-		}
-		
-		$(function() {
-			// AUIGrid 그리드를 생성합니다.
-			createAUIGrid();
-
-			// 데이터 요청, 요청 성공 시 AUIGrid 에 데이터 삽입합니다.
-			preRequestData(rowCount, currentPage);
-
-			window.onresize = function () {
-
-				// 크기가 변경되었을 때 AUIGrid.resize() 함수 호출 
-				if (typeof myGridID !== "undefined") {
-					AUIGrid.resize(myGridID);
-				}
-			};
-		});
-
-		// AUIGrid 를 생성합니다.
-		// function createAUIGrid(columnLayout) {
-
-		// 	var auiGridProps = {
-		// 		// singleRow 선택모드
-		// 		selectionMode: "singleRow",
-
-		// 		// 칼럼 리사아징 false 설정
-		// 		enableColumnResize: false,
-
-		// 		showRowNumColumn: false,
-
-		// 		showRowCheckColumn: false,
-
-		// 		// 소팅
-		// 		enableSorting: true
-		// 	};
-
-		// 	// 실제로 #grid_wrap 에 그리드 생성
-		// 	myGridID = AUIGrid.create("#grid_wrap", columnLayout, auiGridProps);
-		// }
-
-		// // 윈도우 리사이징 이벤트
-		// window.onresize = function () {
-
-		// 	// 크기가 변경되었을 때 AUIGrid.resize() 함수 호출 
-		// 	if (typeof myGridID !== "undefined") {
-		// 		AUIGrid.resize(myGridID);
-		// 	}
-		// };
-
-		</script>
 		<script defer src="./js/move.js"></script>
 	</body>
 </html>

@@ -115,18 +115,18 @@ body>div.wrap:after{content:''; position:relative; display:block; width:100%; he
 /* 로그인 페이지 css */
 .login_page .section_content{width:100%; height:calc(100vh - 126px);}
 .login_page .section_content .article_login{position:absolute;left:50%;top:50%;margin-left:-397px;margin-top:-213px;}
-.login_page .section_content .article_login>div{width:fit-content;margin:auto;}
+.login_page .section_content .article_login>form>div{width:fit-content;margin:auto;}
 .login_page .section_content .article_login .logo_big{margin-bottom:87px;}
 .login_page .section_content .article_login .logo_big>img{width:100%;max-width:794px;}
-.login_page .section_content .article_login>div.input_icon::before{content:'';position:absolute;width:20px;height:20px;background-position:center;background-size:cover;left:12px;bottom:13px;}
-.login_page .section_content .article_login>div.input_id{margin-bottom:22px;}
-.login_page .section_content .article_login>div.input_id::before{background:url("../images/img_login_email.png") no-repeat;}
-.login_page .section_content .article_login>div.input_password::before{background:url("../images/img_login_password.png") no-repeat;}
-.login_page .section_content .article_login>div.caution_password{min-width:327px;height:33px;}
-.login_page .section_content .article_login>div.caution_password>span{position:absolute;width:100%;top:0px;left:0px;line-height:33px;font-size:12px;font-weight:400;}
-.login_page .section_content .article_login>div>label{display:block; height:23px; line-height:17px; font-size:12px; font-weight:700;}
-.login_page .section_content .article_login>div>input[type="text"],.section_content .article_login>div>input[type="password"]{width:325px;height:45px;border:1px solid #E6E6E6;border-radius:5px;padding:12px 17px 12px 42px;font-size:14px;font-weight:700;}
-.login_page .section_content .article_login>.btn_wrap>button{width:327px;height:47px;line-height:47px;border:none;border-radius:5px;font-size:20px;font-weight:700;}
+.login_page .section_content .article_login>form>div.input_icon::before{content:'';position:absolute;width:20px;height:20px;background-position:center;background-size:cover;left:12px;bottom:13px;}
+.login_page .section_content .article_login>form>div.input_id{margin-bottom:22px;}
+.login_page .section_content .article_login>form>div.input_id::before{background:url("../images/img_login_email.png") no-repeat;}
+.login_page .section_content .article_login>form>div.input_password::before{background:url("../images/img_login_password.png") no-repeat;}
+.login_page .section_content .article_login>form>div.caution_password{min-width:327px;height:33px;}
+.login_page .section_content .article_login>form>div.caution_password>span{position:absolute;width:100%;top:0px;left:0px;line-height:33px;font-size:12px;font-weight:400;}
+.login_page .section_content .article_login>form>div>label{display:block; height:23px; line-height:17px; font-size:12px; font-weight:700;}
+.login_page .section_content .article_login>form>div>input[type="text"],.section_content .article_login>form>div>input[type="password"]{width:325px;height:45px;border:1px solid #E6E6E6;border-radius:5px;padding:12px 17px 12px 42px;font-size:14px;font-weight:700;}
+.login_page .section_content .article_login>form>.btn_wrap>button{width:327px;height:47px;line-height:47px;border:none;border-radius:5px;font-size:20px;font-weight:700;}
 .login_page .login_footer{text-align:center;border:none;padding-bottom:59px;font-size:11px;font-weight:500;line-height:16px;color:#CBCBCB;}
 
 /* 데이터관리 페이지 css */
