@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" >
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/earlyaccess/notosanskr.css'>
-		<link href="./js/component/AUIGrid/AUIGrid_modern_style.css" rel="stylesheet">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-ui.js"></script>
 	</head>
 
 	<body class="data_main">
@@ -271,7 +271,7 @@
 													</label>
 												</dt>
 												<dd>
-													<input type="text" name="" id="date_start" class="one_section_input" tabindex="0" maxlength="20">
+													<input type="text" name="" id="date_start" class="date_long_input" tabindex="0" maxlength="20" placeholder="없음" readonly="readonly">
 													<div class="datepick_field datepick_field_1" id="datepick_field_1">
 													</div>
 													<!-- <button type="button" class="datepicker_btn" title="날짜 선택 버튼 입니다."  tabindex="0">
@@ -287,7 +287,7 @@
 													</label>
 												</dt>
 												<dd>
-													<input type="text" name="" id="date_end" class="one_section_input" tabindex="0" maxlength="20" placeholder="없음">
+													<input type="text" name="" id="date_end" class="date_long_input" tabindex="0" maxlength="20" placeholder="없음" readonly="readonly">
 													<!-- <button type="button" class="datepicker_btn" title="날짜 선택 버튼 입니다." tabindex="0">
 													</button> -->
 													<div class="checkbox_wrap display_none">

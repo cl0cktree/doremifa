@@ -82,7 +82,7 @@ textarea{box-sizing:border-box;}
 
 .one_section_input,.date_long_input,.auto_textarea{width:100%!important;}
 .four_section_input{width:58px!important;}
-.date_long_input,.date_short_input{padding-left:30px!important;}
+.date_long_input,.date_short_input{background:url('../images/btn_date.png') no-repeat 5px;padding-left:30px!important;}
 
 .btn_style{width:101px; height:37px; font-size:14px; font-weight:700;}
 .btn_style_1{background:#EEF0FF;border:1px solid #382DBF; border-radius:5px; color:#382DBF;}
@@ -289,6 +289,13 @@ body>div.wrap:after{content:''; position:relative; display:block; width:100%; he
 
 /* 데이트픽커 변경 css */
 .ui-datepicker-trigger{position:absolute;}
+
+.ui-datepicker{width:300px; height:300px; font-size:14px;}
+.ui-datepicker-header{background:#EEF0FF;}
+.ui-datepicker-calendar{height:calc(100% - 40px);}
+.ui-datepicker-calendar tbody tr td>a{height:100%; line-height:35px; text-align:center;}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{border:1px solid #709CBC; background:#EEF0FF; color:#382DBF;}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{border:1px solid #dad55e; background:#382DBF; color:#fff;}
 
 /* ----- auigrid css 변경 ----- */
 .aui-grid-header-panel .aui-grid-table tr:nth-of-type(2)>td>.aui-grid-renderer-base{height:37px!important; max-height:37px!important; line-height:37px!important; color:#5A5A5A!important;}

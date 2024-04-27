@@ -310,6 +310,25 @@ $(function(){
 
 		// -----------------------------
 
+		// -------데이트픽커 임의 -------
+		var start_day;
+		var end_day;
+
+		$('.date_long_input').datepicker({
+			dateFormat: "yy.mm.dd",
+			dayNamesMin:['일','월','화','수','목','금','토'],
+			monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+		});
+		$('#date_start').on('change', function(e){
+			start_day = $( this ).val();
+		});
+		
+
+		$('#date_end').on('change', function(e){
+			end_day = $( this ).val();
+		});
+
+		// -----------------------------
 		// ------ json 에서 데이터 가져와 input 에 삽입----
 		$('.data_main').find('.board_table_wrap').on('mousedown mouseup','tr', function(e){
 			var json_data = './data/gridData_1.json';
