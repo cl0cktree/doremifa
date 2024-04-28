@@ -329,13 +329,22 @@ $(function(){
 			dayNamesMin:['일','월','화','수','목','금','토'],
 			monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
 		});
+
 		$('#date_start').on('change', function(e){
-			start_day = $( this ).val();
+			start_day = $( this ).datepicker('getDate');
 		});
 		
 
 		$('#date_end').on('change', function(e){
-			end_day = $( this ).val();
+			end_day = $( this ).datepicker('getDate');
+		});
+		
+		$('.date_long_input').on('change', function(e){
+			$(this).siblings('.date_caution').addClass('display_none');
+			if(end_day-start_day<0){
+				$(this).val('');
+				$(this).siblings('.date_caution').removeClass('display_none');
+			};
 		});
 		// -----------------------------
 		// ------ json 에서 데이터 가져와 input 에 삽입----

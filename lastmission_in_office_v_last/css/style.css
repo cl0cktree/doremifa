@@ -226,6 +226,7 @@ body>div.wrap:after{content:''; position:relative; display:block; width:100%; he
 .data_main .section_content_2 .tab_content_wrap dl>dd textarea{min-height:28px;border:1px solid #E6E6E6; border-radius:5px; padding:0px 8px 0; line-height:24px; font-size:12px; resize:none;}
 .data_main .section_content_2 .tab_content_wrap dl>dd .datepicker_btn{position:absolute; width:20px; height:20px; border:none; background:url("../images/btn_date.png") no-repeat center/contain; left:6px; top:3px;}
 .data_main .section_content_2 .tab_content_wrap dl>dd .date_short_input{width:197px; float:left;}
+.data_main .section_content_2 .tab_content_wrap dl>dd div.date_caution{display:block; position:absolute; background:#757575; border-radius:5px; padding:5px; top:-8px; left:-100px; z-index:5; color:#fff;}
 
 .data_main .section_content_2 .tab_content_wrap dl>dd .checkbox_wrap{line-height:28px; float:left;}
 .data_main .section_content_2 .tab_content_wrap dl>dd .checkbox_wrap input[type=checkbox]{display:none;}
