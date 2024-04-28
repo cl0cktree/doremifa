@@ -90,7 +90,8 @@ $(function(){
 		// 페이지네이션 각 숫자 버튼 제어.
 		$('.data_main, .log_main').find('.board_pagenation').on('click','a',function(e){
 			e.preventDefault();
-
+			e.stopPropagation();
+			
 			var num_btn = $('.data_main, .log_main').find('.board_pagenation').find('a');
 			var view_page = $(this).data('num');
 			var num_start =view_page*page_per_row;
@@ -152,12 +153,15 @@ $(function(){
 		// ----------------------------------------------------------
 		//-----테이블 리로드 버튼 제어----------
 		$('.data_reload_btn, .log_reload_btn').on('click',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+
 			$('.board_table_wrap').find('.board_table_body').find('tr').removeClass('display_none');
 			$('.board_pagenation_wrap').removeClass('display_none');
 			$('.num_btn_1').click();
 		});
 		// ------------------------------------
-		//-----검색 부분 셀랙트 박스 구현 부분
+		//-----검색 부분 및 셀랙트 박스 구현 부분
 		var $select_lange = $('.select_lange');
 		var $search_list = $('.search_list');
 		var $sel_options = $('.search_list').children('li').find('button');
@@ -198,6 +202,7 @@ $(function(){
 			}
 			$(temp).parent('tr').removeClass('display_none');
 		});
+
 		$('.select_input').on('keydown', function(e){
 			if((e.type=='keydown')&&(e.keyCode==13)){
 				e.preventDefault();
